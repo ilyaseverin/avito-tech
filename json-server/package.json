@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "json-server": "^1.0.0-beta.2"
+  },
+  "scripts": {
+    "server": "json-server --watch db.json --port 8000"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

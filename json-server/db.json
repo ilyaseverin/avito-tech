@@ -1,0 +1,386 @@
+{
+  "advertisements": [
+    {
+      "id": "1",
+      "name": "Стул старинный",
+      "description": "Очень красивый 3234",
+      "price": 2020,
+      "createdAt": "2022-08-12T20:16:55.351Z",
+      "views": 20,
+      "likes": 2,
+      "imageUrl": "https://kontora-k.ru/s_img/17499.jpg"
+    },
+    {
+      "name": "Ведро снега",
+      "price": 30342,
+      "description": "Последняя возможность купить по выгодной цене! УУККК",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE_HmXRNEoaOYEDujaVLd09oQoQfmqAmXTCg&s",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Плащ невидимка",
+      "price": 10000000,
+      "createdAt": "2024-08-12T20:16:55.351Z",
+      "views": 900,
+      "likes": 19,
+      "imageUrl": "https://cdn.leroymerlin.ru/lmru/image/upload/f_auto/q_auto/dpr_1.0/c_pad/w_1000/h_1000/v1633341771/lmcode/p-Ew-cJXKkajBACTWfMOAw/90036310_01.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Ковер",
+      "description": "Стильный модный, как у бабушки в деревне :)))",
+      "price": 5000,
+      "createdAt": "2024-07-12T20:16:55.351Z",
+      "views": 2000000,
+      "likes": 2,
+      "imageUrl": "https://cdn.kover.ru/upload/blog/5-mistakes-rugs-1.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Носки",
+      "price": 6000,
+      "createdAt": "2024-06-12T20:16:55.351Z",
+      "views": 0,
+      "likes": 0,
+      "imageUrl": "https://static.markformelle.by/site/master/catalog/531083/desktop/card/6614219.webp"
+    },
+    {
+      "id": "6",
+      "name": "Картонная коробка",
+      "description": "Прочная.",
+      "price": 7000,
+      "createdAt": "2024-04-12T20:16:55.351Z",
+      "views": 1,
+      "likes": 0,
+      "imageUrl": "https://mile.by/images/cache/_thumb_600x600xin_upload_iblock_eb5_1301007_1.jpg"
+    },
+    {
+      "name": "Угловой диван",
+      "price": 999,
+      "description": "Стих для привлечения внимания: дама сдавала в багаж диван, чемодан, саквояж, картину, корзину, картонку и маленькую собачонку. выдали даме на станции четыре зеленых квитанции о том, что получен багаж: диван, чемодан, саквояж, картина, корзина, картонка и маленькая собачонка. вещи везут на перрон. кидают в открытый вагон. готово. уложен багаж: диван, чемодан, саквояж, картина, корзина, картонка и маленькая собачонка. но только раздался звонок, удрал из вагона щенок. хватились на станции дно: потеряно место одно. в испуге считают багаж: диван, чемодан, саквояж, картина, корзина, картонка… — товарищи! где собачонка? вдруг видят: стоит у колес огромный взъерошенный пес. поймали его — и в багаж, туда, где лежал саквояж, картина, корзина, картонка, где прежде была собачонка. приехали в город житомир. носильщик пятнадцатый номер везет на тележке багаж: диван, чемодан, саквояж, картину, корзину, картонку, а сзади ведут собачонку. собака-то как зарычит, а барыня как закричит: — разбойники! воры! уроды! собака — не той породы! швырнула она чемодан, ногой отпихнула диван, картину, корзину, картонку… — отдайте мою собачонку! — позвольте, мамаша! на станции, согласно багажной квитанции, от вас получили багаж: диван, чемодан, саквояж, картину, корзину, картонку и маленькую собачонку. однако за время пути собака могла подрасти!",
+      "imageUrl": "https://bestmebelshop.by/upload/resize_cache/iblock/1e5/800_533_1cb3ed90bb4b099ee9292aa8dda3584d7/1e5964f8cc6929bb5adf7c7b8e1e31f4.jpg",
+      "id": "7"
+    },
+    {
+      "id": "8",
+      "name": "Новый айфон",
+      "price": 100000,
+      "createdAt": "2024-08-12T12:16:55.351Z",
+      "views": 200000,
+      "likes": 302,
+      "imageUrl": "https://s0.rbk.ru/v6_top_pics/media/img/1/62/346945445675621.webp"
+    },
+    {
+      "id": "8eea",
+      "name": "Пенал",
+      "description": "голова два уха",
+      "price": 122222,
+      "imageUrl": "https://kontora-k.ru/s_img/17499.jpg",
+      "createdAt": "2024-09-09T21:33:43.609Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "44c5",
+      "name": "122222222",
+      "description": "12313",
+      "price": 13123,
+      "imageUrl": "12312312",
+      "createdAt": "2024-09-09T23:38:38.340Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "d6c2",
+      "name": "1232131212123312",
+      "description": "12312321",
+      "price": 3123123213,
+      "imageUrl": "12312331",
+      "createdAt": "2024-09-09T23:38:49.373Z",
+      "views": 0,
+      "likes": 0
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "status": 0,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "status": 4,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "2024-08-12T20:25:55.351Z",
+      "total": 33000,
+      "deliveryWay": "sdek",
+      "items": [
+        {
+          "id": "2",
+          "name": "Ведро снега",
+          "description": "Последняя возможность купить по выгодной цене!",
+          "price": 3000,
+          "createdAt": "2023-08-12T20:16:55.351Z",
+          "views": 77832,
+          "likes": 45666,
+          "imageUrl": "",
+          "count": 10
+        },
+        {
+          "id": "5",
+          "name": "Носки",
+          "price": 6000,
+          "createdAt": "2024-06-12T20:16:55.351Z",
+          "views": 0,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "status": 0,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "status": 0,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "status": 0,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "status": 0,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "status": 0,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "8",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "status": 4,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "status": 4,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "8",
+          "name": "Новый айфон",
+          "price": 100000,
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "",
+          "count": 3
+        },
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "",
+          "count": 2
+        }
+      ]
+    }
+  ]
+}
