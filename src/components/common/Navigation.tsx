@@ -1,4 +1,3 @@
-// components/Navigation.tsx (обновлённый)
 import React from "react";
 import {
   AppBar,
