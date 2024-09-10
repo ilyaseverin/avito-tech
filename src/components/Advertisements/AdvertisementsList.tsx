@@ -73,7 +73,6 @@ const AdvertisementsList: React.FC = () => {
 
   return (
     <Box sx={{ p: 4 }}>
-      {/* Поиск и кнопка добавления объявления */}
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 4 }}>
         <TextField
           label="Поиск объявлений"
@@ -86,13 +85,12 @@ const AdvertisementsList: React.FC = () => {
           variant="contained"
           startIcon={<AddCircle />}
           onClick={handleOpenCreateDialog}
-          sx={{ minWidth: 250, borderRadius: 2 }} // Установлено для соответствия Select
+          sx={{ minWidth: 250, borderRadius: 2 }}
         >
           Добавить объявление
         </Button>
       </Box>
 
-      {/* Фильтрация и выбор количества */}
       <Box
         sx={{
           display: "flex",
@@ -129,7 +127,6 @@ const AdvertisementsList: React.FC = () => {
         </FormControl>
       </Box>
 
-      {/* Список объявлений */}
       <Grid container spacing={4}>
         {paginatedAds.map((ad: Advertisement) => (
           <Grid item xs={12} sm={6} md={4} key={ad.id}>
@@ -138,7 +135,6 @@ const AdvertisementsList: React.FC = () => {
         ))}
       </Grid>
 
-      {/* Пагинация */}
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
         <Pagination
           count={totalPages}
@@ -148,7 +144,6 @@ const AdvertisementsList: React.FC = () => {
         />
       </Box>
 
-      {/* Модальное окно для создания нового объявления */}
       <Dialog open={openCreateDialog} onClose={handleCloseCreateDialog}>
         <DialogTitle>Создать новое объявление</DialogTitle>
         <DialogContent>
