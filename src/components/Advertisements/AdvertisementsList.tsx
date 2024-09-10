@@ -9,13 +9,17 @@ import {
   Button,
   Dialog,
   DialogActions,
+  DialogContent,
   DialogTitle,
+  InputLabel,
+  FormControl,
   SelectChangeEvent,
 } from "@mui/material";
 import { AddCircle } from "@mui/icons-material";
 import { useGetAdvertisementsQuery } from "../../redux/advertisementsApi";
 import AdvertisementCard from "./AdvertisementCard";
 import Loader from "../common/Loader";
+import CreateAdvertisementForm from "./CreateAdvertisementForm";
 import { Advertisement } from "../../types/types";
 import useDebounce from "../../hooks/useDebounce";
 
@@ -69,7 +73,8 @@ const AdvertisementsList: React.FC = () => {
 
   return (
     <Box sx={{ p: 4 }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
+      {/* Поиск и кнопка добавления объявления */}
+      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 4 }}>
         <TextField
           label="Поиск объявлений"
           variant="outlined"
@@ -81,28 +86,50 @@ const AdvertisementsList: React.FC = () => {
           variant="contained"
           startIcon={<AddCircle />}
           onClick={handleOpenCreateDialog}
+          sx={{ minWidth: 250, borderRadius: 2 }} // Установлено для соответствия Select
         >
           Добавить объявление
         </Button>
       </Box>
 
-      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-        <Select
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-          sx={{ width: 200 }}
-        >
-          <MenuItem value="price">По цене</MenuItem>
-          <MenuItem value="views">По просмотрам</MenuItem>
-          <MenuItem value="likes">По лайкам</MenuItem>
-        </Select>
-        <Select value={limit} onChange={handleLimitChange} sx={{ width: 200 }}>
-          <MenuItem value={5}>5</MenuItem>
-          <MenuItem value={10}>10</MenuItem>
-          <MenuItem value={15}>15</MenuItem>
-        </Select>
+      {/* Фильтрация и выбор количества */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 4,
+          flexWrap: "wrap",
+        }}
+      >
+        <FormControl sx={{ minWidth: 250 }}>
+          <InputLabel>Фильтрация объявлений</InputLabel>
+          <Select
+            value={sortBy}
+            label="Фильтрация объявлений"
+            onChange={(e) => setSortBy(e.target.value)}
+          >
+            <MenuItem value="price">По цене</MenuItem>
+            <MenuItem value="views">По просмотрам</MenuItem>
+            <MenuItem value="likes">По лайкам</MenuItem>
+          </Select>
+        </FormControl>
+
+        <FormControl sx={{ minWidth: 250 }}>
+          <InputLabel>Количество объявлений на странице</InputLabel>
+          <Select
+            value={limit}
+            label="Количество объявлений на странице"
+            onChange={handleLimitChange}
+          >
+            <MenuItem value={5}>5</MenuItem>
+            <MenuItem value={10}>10</MenuItem>
+            <MenuItem value={15}>15</MenuItem>
+          </Select>
+        </FormControl>
       </Box>
 
+      {/* Список объявлений */}
       <Grid container spacing={4}>
         {paginatedAds.map((ad: Advertisement) => (
           <Grid item xs={12} sm={6} md={4} key={ad.id}>
@@ -111,6 +138,7 @@ const AdvertisementsList: React.FC = () => {
         ))}
       </Grid>
 
+      {/* Пагинация */}
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
         <Pagination
           count={totalPages}
@@ -120,9 +148,12 @@ const AdvertisementsList: React.FC = () => {
         />
       </Box>
 
+      {/* Модальное окно для создания нового объявления */}
       <Dialog open={openCreateDialog} onClose={handleCloseCreateDialog}>
         <DialogTitle>Создать новое объявление</DialogTitle>
-
+        <DialogContent>
+          <CreateAdvertisementForm onClose={handleCloseCreateDialog} />
+        </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseCreateDialog} color="primary">
             Отмена
