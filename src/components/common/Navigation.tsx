@@ -8,7 +8,7 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-import { darkTheme } from "../utils/themeMode";
+import { darkTheme } from "../../utils/themeMode";
 
 const Navigation: React.FC = () => {
   const location = useLocation();

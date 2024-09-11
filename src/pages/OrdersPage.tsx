@@ -1,4 +1,4 @@
-const OrdersPage = () => {
+const OrdersPage: React.FC = () => {
   return (
     <div>
       <h1>Все заказы</h1>

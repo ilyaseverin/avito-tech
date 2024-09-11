@@ -38,7 +38,10 @@ const AdvertisementCard: React.FC<AdvertisementCardProps> = ({
       >
         <CardMedia
           component="img"
-          image={advertisement.imageUrl || "https://via.placeholder.com/150"}
+          image={
+            advertisement.imageUrl ||
+            "https://brilliant24.ru/files/cat/template_01.png"
+          }
           alt={advertisement.name}
           sx={{
             position: "absolute",
@@ -46,7 +49,7 @@ const AdvertisementCard: React.FC<AdvertisementCardProps> = ({
             left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover", // Обеспечивает, что изображение покроет весь контейнер
+            objectFit: "cover",
           }}
         />
       </Box>
