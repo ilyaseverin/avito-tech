@@ -32,26 +32,18 @@ const AdvertisementsList: React.FC = () => {
   const [openCreateDialog, setOpenCreateDialog] = useState<boolean>(false);
 
   const {
-    data: advertisements = [],
+    data: responseData,
     isLoading,
     error,
-  } = useGetAdvertisementsQuery();
+  } = useGetAdvertisementsQuery({
+    page,
+    per_page: limit,
+    sort: sortBy,
+    searchQuery: debouncedSearchQuery,
+  });
 
-  const filteredAds = advertisements
-    .filter((ad) =>
-      debouncedSearchQuery.length >= 3
-        ? ad.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
-        : true
-    )
-    .sort((a, b) => {
-      if (sortBy === "price") return a.price - b.price;
-      if (sortBy === "views") return b.views - a.views;
-      if (sortBy === "likes") return b.likes - a.likes;
-      return 0;
-    });
-
-  const totalPages = Math.ceil(filteredAds.length / limit);
-  const paginatedAds = filteredAds.slice((page - 1) * limit, page * limit);
+  const advertisements = responseData?.data || [];
+  const totalPages = responseData?.pages || 1;
 
   const handlePageChange = (
     _event: React.ChangeEvent<unknown>,
@@ -108,8 +100,8 @@ const AdvertisementsList: React.FC = () => {
             onChange={(e) => setSortBy(e.target.value)}
           >
             <MenuItem value="price">По цене</MenuItem>
-            <MenuItem value="views">По просмотрам</MenuItem>
-            <MenuItem value="likes">По лайкам</MenuItem>
+            <MenuItem value="-views">По просмотрам</MenuItem>
+            <MenuItem value="-likes">По лайкам</MenuItem>
           </Select>
         </FormControl>
 
@@ -128,7 +120,7 @@ const AdvertisementsList: React.FC = () => {
       </Box>
 
       <Grid container spacing={4}>
-        {paginatedAds.map((ad: Advertisement) => (
+        {advertisements.map((ad: Advertisement) => (
           <Grid item xs={12} sm={6} md={4} key={ad.id}>
             <AdvertisementCard advertisement={ad} />
           </Grid>

@@ -6,8 +6,26 @@ export const advertisementsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
   tagTypes: ["Advertisement"],
   endpoints: (builder) => ({
-    getAdvertisements: builder.query<Advertisement[], void>({
-      query: () => `/advertisements`,
+    getAdvertisements: builder.query<
+      {
+        data: Advertisement[];
+        total: number;
+        pages: number;
+      },
+      { page?: number; per_page?: number; sort?: string; searchQuery?: string }
+    >({
+      query: ({
+        page = 1,
+        per_page = 10,
+        sort = "price",
+        searchQuery = "",
+      }) => {
+        let queryString = `/advertisements?_page=${page}&_per_page=${per_page}&_sort=${sort}`;
+        if (searchQuery) {
+          queryString += `&q=${searchQuery}`;
+        }
+        return queryString;
+      },
       providesTags: (result) =>
         result ? [{ type: "Advertisement", id: "LIST" }] : ["Advertisement"],
     }),

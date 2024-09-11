@@ -18,7 +18,7 @@ const OrdersList = () => {
   const [statusFilter, setStatusFilter] = useState<number | null>(null);
   const [sortOrder, setSortOrder] = useState<string>("total");
   const [page, setPage] = useState<number>(1);
-  const [perPage, setPerPage] = useState<number>(10);
+  const [perPage, setPerPage] = useState<number>(6);
 
   const {
     data: responseData,
@@ -83,9 +83,9 @@ const OrdersList = () => {
               onChange={handleFilterChange(setPerPage)}
               label="Количество заказов на странице"
             >
-              <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={10}>10</MenuItem>
-              <MenuItem value={15}>15</MenuItem>
+              <MenuItem value={6}>6</MenuItem>
+              <MenuItem value={12}>12</MenuItem>
+              <MenuItem value={18}>18</MenuItem>
             </Select>
           </FormControl>
         </Grid>

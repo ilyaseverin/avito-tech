@@ -110,6 +110,16 @@
       "createdAt": "2024-09-10T20:26:14.978Z",
       "views": 0,
       "likes": 0
+    },
+    {
+      "id": "7a0f",
+      "name": "Гриб Баравик",
+      "description": "лесной такойввввввввцц  ц ц ц",
+      "price": 1235,
+      "imageUrl": "",
+      "createdAt": "2024-09-11T16:02:33.925Z",
+      "views": 0,
+      "likes": 0
     }
   ],
   "orders": [
