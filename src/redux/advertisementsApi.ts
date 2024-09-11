@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Advertisement } from "../types/types";
+import { Advertisement, AdvertisementResponse } from "../types/types";
 
 export const advertisementsApi = createApi({
   reducerPath: "advertisementsApi",
@@ -7,11 +7,7 @@ export const advertisementsApi = createApi({
   tagTypes: ["Advertisement"],
   endpoints: (builder) => ({
     getAdvertisements: builder.query<
-      {
-        data: Advertisement[];
-        total: number;
-        pages: number;
-      },
+      AdvertisementResponse,
       { page?: number; per_page?: number; sort?: string; searchQuery?: string }
     >({
       query: ({

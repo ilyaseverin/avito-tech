@@ -13,12 +13,17 @@ import {
   Typography,
   Pagination,
 } from "@mui/material";
+import { useSearchParams } from "react-router-dom";
+import ErrorAlert from "../common/ErrorAler";
 
-const OrdersList = () => {
+const OrdersList: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<number | null>(null);
   const [sortOrder, setSortOrder] = useState<string>("total");
   const [page, setPage] = useState<number>(1);
-  const [perPage, setPerPage] = useState<number>(6);
+  const [perPage, setPerPage] = useState<number>(4);
+
+  const [searchParams] = useSearchParams();
+  const advertisementId = searchParams.get("advertisementId");
 
   const {
     data: responseData,
@@ -31,7 +36,13 @@ const OrdersList = () => {
     sort: sortOrder,
   });
 
-  const orders = responseData?.data || [];
+  const orders =
+    responseData?.data.filter((order: Order) =>
+      advertisementId
+        ? order.items.some((item) => item.id === advertisementId)
+        : true
+    ) || [];
+
   const totalPages = responseData?.pages || 1;
 
   const handleFilterChange =
@@ -41,11 +52,17 @@ const OrdersList = () => {
     };
 
   if (isLoading) return <Loader />;
-  if (error) return <div>Ошибка загрузки заказов</div>;
+  if (error) {
+    const errorCode = (error as any)?.status || null;
+    return (
+      <ErrorAlert message="Ошибка загрузки заказов" errorCode={errorCode} />
+    );
+  }
 
   return (
     <Box sx={{ p: 4 }}>
       <Grid container spacing={3} sx={{ mb: 3 }}>
+        {/* Фильтры */}
         <Grid item xs={12} sm={6} md={4}>
           <FormControl fullWidth>
             <InputLabel>Фильтр по статусу</InputLabel>
@@ -83,9 +100,9 @@ const OrdersList = () => {
               onChange={handleFilterChange(setPerPage)}
               label="Количество заказов на странице"
             >
+              <MenuItem value={4}>4</MenuItem>
               <MenuItem value={6}>6</MenuItem>
               <MenuItem value={12}>12</MenuItem>
-              <MenuItem value={18}>18</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -99,7 +116,20 @@ const OrdersList = () => {
             </Grid>
           ))
         ) : (
-          <Typography variant="body1">Заказы не найдены</Typography>
+          <Typography
+            variant="h2"
+            component="h2"
+            color="textSecondary"
+            p={10}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            Заказы не найдены
+          </Typography>
         )}
       </Grid>
 

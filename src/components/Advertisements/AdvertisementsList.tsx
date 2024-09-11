@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Box,
   Grid,
@@ -14,6 +14,7 @@ import {
   InputLabel,
   FormControl,
   SelectChangeEvent,
+  Typography,
 } from "@mui/material";
 import { AddCircle } from "@mui/icons-material";
 import { useGetAdvertisementsQuery } from "../../redux/advertisementsApi";
@@ -22,6 +23,7 @@ import Loader from "../common/Loader";
 import CreateAdvertisementForm from "./CreateAdvertisementForm";
 import { Advertisement } from "../../types/types";
 import useDebounce from "../../hooks/useDebounce";
+import ErrorAlert from "../common/ErrorAler";
 
 const AdvertisementsList: React.FC = () => {
   const [page, setPage] = useState<number>(1);
@@ -42,8 +44,20 @@ const AdvertisementsList: React.FC = () => {
     searchQuery: debouncedSearchQuery,
   });
 
-  const advertisements = responseData?.data || [];
+  const allAdvertisements = useMemo(
+    () => responseData?.data || [],
+    [responseData]
+  );
   const totalPages = responseData?.pages || 1;
+
+  const filteredAdvertisements = useMemo(() => {
+    if (debouncedSearchQuery.length >= 3) {
+      return allAdvertisements.filter((ad: Advertisement) =>
+        ad.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+      );
+    }
+    return allAdvertisements;
+  }, [debouncedSearchQuery, allAdvertisements]);
 
   const handlePageChange = (
     _event: React.ChangeEvent<unknown>,
@@ -61,18 +75,31 @@ const AdvertisementsList: React.FC = () => {
   const handleCloseCreateDialog = () => setOpenCreateDialog(false);
 
   if (isLoading) return <Loader />;
-  if (error) return <div>Ошибка загрузки объявлений</div>;
+  if (error) {
+    const errorCode = (error as any)?.status || null;
+    return (
+      <ErrorAlert message="Ошибка загрузки объявлений" errorCode={errorCode} />
+    );
+  }
 
   return (
     <Box sx={{ p: 4 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 4 }}>
-        <TextField
-          label="Поиск объявлений"
-          variant="outlined"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          sx={{ flex: 1, mr: 2 }}
-        />
+        <Box sx={{ flex: 1, mr: 2 }}>
+          <TextField
+            label="Поиск объявлений"
+            variant="outlined"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            fullWidth
+          />
+          {searchQuery.length > 0 && searchQuery.length < 3 && (
+            <Typography color="error" variant="caption">
+              Введите еще минимум {3 - searchQuery.length} символа(ов) для
+              поиска
+            </Typography>
+          )}
+        </Box>
         <Button
           variant="contained"
           startIcon={<AddCircle />}
@@ -120,7 +147,7 @@ const AdvertisementsList: React.FC = () => {
       </Box>
 
       <Grid container spacing={4}>
-        {advertisements.map((ad: Advertisement) => (
+        {filteredAdvertisements.map((ad: Advertisement) => (
           <Grid item xs={12} sm={6} md={4} key={ad.id}>
             <AdvertisementCard advertisement={ad} />
           </Grid>

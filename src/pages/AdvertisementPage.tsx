@@ -58,15 +58,20 @@ const AdvertisementPage: React.FC = () => {
   }, [advertisement]);
 
   useEffect(() => {
+    checkDescriptionOverflow();
+  }, [formData]);
+
+  const checkDescriptionOverflow = () => {
     if (descriptionRef.current) {
-      const descriptionElement = descriptionRef.current;
       const lineHeight = parseFloat(
-        window.getComputedStyle(descriptionElement).lineHeight
+        window.getComputedStyle(descriptionRef.current).lineHeight
       );
       const maxHeight = lineHeight * 4;
-      setIsDescriptionOverflowing(descriptionElement.scrollHeight > maxHeight);
+      setIsDescriptionOverflowing(
+        descriptionRef.current.scrollHeight > maxHeight
+      );
     }
-  }, [formData]);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -184,16 +189,13 @@ const AdvertisementPage: React.FC = () => {
               <Typography
                 ref={descriptionRef}
                 sx={{
-                  overflow: showFullDescription ? "visible" : "hidden",
                   whiteSpace: "pre-line",
-                  textOverflow: showFullDescription ? "unset" : "ellipsis",
                   lineHeight: "1.5",
-                  maxHeight: showFullDescription
-                    ? "none"
-                    : isDescriptionOverflowing
-                    ? "6em"
-                    : "auto",
-                  transition: "max-height 0.3s ease",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  display: "-webkit-box",
+                  WebkitLineClamp: showFullDescription ? "none" : 4,
+                  WebkitBoxOrient: "vertical",
                 }}
               >
                 {formData.description}
@@ -232,13 +234,13 @@ const AdvertisementPage: React.FC = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Visibility sx={{ mr: 1 }} />
               <Typography variant="body2" color="textSecondary">
-                {advertisement?.views}
+                {advertisement?.views || 0}
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Favorite sx={{ mr: 1 }} />
               <Typography variant="body2" color="textSecondary">
-                {advertisement?.likes}
+                {advertisement?.likes || 0}
               </Typography>
             </Box>
           </Box>

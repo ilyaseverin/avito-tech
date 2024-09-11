@@ -1,5 +1,12 @@
 import React from "react";
-import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Box,
+  Button,
+} from "@mui/material";
 import { Favorite, Visibility } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { Advertisement } from "../../types/types";
@@ -15,6 +22,11 @@ const AdvertisementCard: React.FC<AdvertisementCardProps> = ({
 
   const handleCardClick = () => {
     navigate(`/advertisements/${advertisement.id}`);
+  };
+
+  const handleViewOrdersClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    navigate(`/orders?advertisementId=${advertisement.id}`);
   };
 
   return (
@@ -67,6 +79,16 @@ const AdvertisementCard: React.FC<AdvertisementCardProps> = ({
             <Favorite sx={{ mr: 1 }} />
             <Typography>{advertisement.likes}</Typography>
           </Box>
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={handleViewOrdersClick}
+          >
+            К заказам
+          </Button>
         </Box>
       </CardContent>
     </Card>

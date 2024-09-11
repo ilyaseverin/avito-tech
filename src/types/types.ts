@@ -46,3 +46,13 @@ export type OrdersResponse = {
   pages: number;
   items: number;
 };
+
+export type AdvertisementResponse = {
+  data: Advertisement[];
+  first: number;
+  prev?: number;
+  next?: number;
+  last: number;
+  pages: number;
+  items: number;
+};

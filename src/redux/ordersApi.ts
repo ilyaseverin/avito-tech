@@ -10,7 +10,7 @@ export const ordersApi = createApi({
       OrdersResponse,
       { status?: number; page?: number; per_page?: number; sort?: string }
     >({
-      query: ({ status, page = 1, per_page = 6, sort = "total" }) => {
+      query: ({ status, page = 1, per_page = 4, sort = "total" }) => {
         let queryString = `/orders?_page=${page}&_per_page=${per_page}&_sort=${sort}`;
         if (status !== undefined) {
           queryString += `&status=${status}`;
