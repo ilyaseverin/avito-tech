@@ -36,3 +36,13 @@ export type Image = {
   url: string;
   name: string;
 };
+
+export type OrdersResponse = {
+  data: Order[];
+  first: number;
+  prev?: number;
+  next?: number;
+  last: number;
+  pages: number;
+  items: number;
+};
