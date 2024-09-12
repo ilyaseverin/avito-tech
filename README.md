@@ -84,6 +84,6 @@ Create a `.env` file in the root of your project and add any necessary environme
 REACT_APP_API_URL=http://localhost:8000
 ```
 
-### Вопросы/проблемы
+## Вопросы/проблемы
 
 Параметры "name_like" и "q" не работают в последней версии json-server [https://github.com/typicode/json-server/issues/1509](https://github.com/typicode/json-server/issues/1509). Принял решение филтровать данные для поиска на стороне клиента. Можно было откати версию до 0.17.0, но не стал
