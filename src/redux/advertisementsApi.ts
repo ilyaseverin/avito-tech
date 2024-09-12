@@ -3,7 +3,9 @@ import { Advertisement, AdvertisementResponse } from "../types/types";
 
 export const advertisementsApi = createApi({
   reducerPath: "advertisementsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.REACT_APP_API_URL || "http://localhost:8000",
+  }),
   tagTypes: ["Advertisement"],
   endpoints: (builder) => ({
     getAdvertisements: builder.query<

@@ -3,7 +3,9 @@ import { Order, OrdersResponse } from "../types/types";
 
 export const ordersApi = createApi({
   reducerPath: "ordersApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.REACT_APP_API_URL || "http://localhost:8000",
+  }),
   tagTypes: ["Order"],
   endpoints: (builder) => ({
     getOrders: builder.query<
