@@ -5,14 +5,15 @@ import Loader from "../common/Loader";
 import { Order } from "../../types/types";
 import {
   Box,
-  Grid,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
   Typography,
   Pagination,
+  Grid2,
 } from "@mui/material";
+
 import { useSearchParams } from "react-router-dom";
 import ErrorAlert from "../common/ErrorAler";
 
@@ -61,9 +62,8 @@ const OrdersList: React.FC = () => {
 
   return (
     <Box sx={{ p: 4 }}>
-      <Grid container spacing={3} sx={{ mb: 3 }}>
-        {/* Фильтры */}
-        <Grid item xs={12} sm={6} md={4}>
+      <Grid2 container spacing={3} sx={{ mb: 3 }}>
+        <Grid2 size={{ xs: 12, md: 4 }}>
           <FormControl fullWidth>
             <InputLabel>Фильтр по статусу</InputLabel>
             <Select
@@ -76,9 +76,9 @@ const OrdersList: React.FC = () => {
               <MenuItem value="4">Выполнен</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
+        </Grid2>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid2 size={{ xs: 12, md: 4 }}>
           <FormControl fullWidth>
             <InputLabel>Сортировка по цене</InputLabel>
             <Select
@@ -90,9 +90,9 @@ const OrdersList: React.FC = () => {
               <MenuItem value="-total">По убыванию</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
+        </Grid2>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid2 size={{ xs: 12, md: 4 }}>
           <FormControl fullWidth>
             <InputLabel>Количество заказов на странице</InputLabel>
             <Select
@@ -105,15 +105,15 @@ const OrdersList: React.FC = () => {
               <MenuItem value={12}>12</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
 
-      <Grid container spacing={4}>
+      <Grid2 container spacing={4}>
         {orders.length > 0 ? (
           orders.map((order: Order) => (
-            <Grid item xs={12} sm={12} md={6} lg={6} key={order.id}>
+            <Grid2 size={{ xs: 12, md: 6 }} key={order.id}>
               <OrderCard order={order} />
-            </Grid>
+            </Grid2>
           ))
         ) : (
           <Typography
@@ -131,7 +131,7 @@ const OrdersList: React.FC = () => {
             Заказы не найдены
           </Typography>
         )}
-      </Grid>
+      </Grid2>
 
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
         <Pagination
