@@ -56,9 +56,10 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
           boxShadow: 2,
           borderRadius: 2,
           p: 2,
-          transition: "box-shadow 0.3s ease",
+          transition: "transform 0.3s ease",
           "&:hover": {
-            boxShadow: 4,
+            transform: "scale(1.05)",
+            boxShadow: 6,
           },
         }}
       >

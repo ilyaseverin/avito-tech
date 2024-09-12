@@ -37,6 +37,11 @@ const AdvertisementCard: React.FC<AdvertisementCardProps> = ({
         padding: 2,
         borderRadius: 5,
         boxShadow: 3,
+        transition: "transform 0.3s ease",
+        "&:hover": {
+          transform: "scale(1.05)",
+          boxShadow: 6,
+        },
       }}
     >
       <Box
