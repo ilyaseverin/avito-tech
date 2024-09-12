@@ -1,51 +1,89 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+Here is the instruction for running your current project:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Setup Instructions
 
-## Available Scripts
+## 1. Install Dependencies
 
-In the project directory, you can run:
+First, make sure you have [Node.js](https://nodejs.org/) (version 20 or higher) and [npm](https://www.npmjs.com/) installed. Then, run the following command to install all project dependencies:
 
-### `npm start`
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 2. Run the App in Development Mode
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To start the project in development mode, use the following command:
 
-### `npm test`
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After starting, the app will be available in your browser at [http://localhost:3000](http://localhost:3000).
 
-### `npm run build`
+## 3. Build the Project for Production
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To create a production-ready build of the app, use this command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The build will be placed in the `build` folder. This version is optimized for best performance and is ready for deployment on a server.
 
-### `npm run eject`
+## 4. Running JSON Server (if used)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you are using `json-server` to simulate an API, start it separately with the following command:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run server
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The server will be available at [http://localhost:8000](http://localhost:8000).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 5. Running Tests
 
-## Learn More
+To run the tests, use the following command:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm test
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# avito-tech
+## 6. Docker Setup
 
->>>>>>> 7400ae281c8fe365e80725a10cf4d096310b02a5
+### 6.1. Build Docker Image
+
+If you want to run the app with Docker, first build the Docker image:
+
+```bash
+docker build -t your-app-name .
+```
+
+### 6.2. Run Docker Container
+
+After building the Docker image, start it using this command:
+
+```bash
+docker run -p 3000:3000 your-app-name
+```
+
+Now the app will be available at [http://localhost:3000](http://localhost:3000).
+
+### 6.3. Docker Compose (if used)
+
+If you are using `docker-compose.yml`, you can start the app and any related services (e.g., JSON server) by running:
+
+```bash
+docker-compose up
+```
+
+## 7. Environment Variables
+
+Create a `.env` file in the root of your project and add any necessary environment variables, for example:
+
+```bash
+REACT_APP_API_URL=http://localhost:8000
+```
+
+### Вопросы/проблемы
+
+Параметры "name_like" и "q" не работают в последней версии json-server [https://github.com/typicode/json-server/issues/1509](https://github.com/typicode/json-server/issues/1509). Принял решение филтровать данные для поиска на стороне клиента. Можно было откати версию до 0.17.0, но не стал
