@@ -10,12 +10,12 @@ import {
   Button,
   Box,
   Typography,
-  Grid,
   Collapse,
   IconButton,
-  Card,
   CardMedia,
   CardContent,
+  Grid2,
+  Card,
 } from "@mui/material";
 import {
   ExpandMore,
@@ -107,9 +107,9 @@ const AdvertisementPage: React.FC = () => {
 
   return (
     <Box sx={{ paddingY: 4, width: "100%", mx: "auto" }}>
-      <Grid container spacing={4} alignItems="flex-start">
-        <Grid item xs={12} md={6}>
-          <Card sx={{ boxShadow: 1, padding: 2 }}>
+      <Grid2 container spacing={4} alignItems="flex-start">
+        <Grid2 size={{ xs: 12, md: 6 }}>
+          <Card sx={{ boxShadow: 15, padding: 2 }}>
             <Box
               sx={{
                 height: "60vh",
@@ -142,9 +142,9 @@ const AdvertisementPage: React.FC = () => {
               </CardContent>
             )}
           </Card>
-        </Grid>
+        </Grid2>
 
-        <Grid item xs={12} md={6}>
+        <Grid2 size={{ xs: 12, md: 6 }}>
           <Typography variant="h4" gutterBottom>
             {isEditing ? (
               <TextField
@@ -268,8 +268,8 @@ const AdvertisementPage: React.FC = () => {
               Редактировать
             </Button>
           )}
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
     </Box>
   );
 };

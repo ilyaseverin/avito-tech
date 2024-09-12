@@ -86,16 +86,18 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
 
         <CardActions sx={{ justifyContent: "space-between", p: 2 }}>
           <Button
+            fullWidth
             onClick={toggleExpandOrder}
             variant="outlined"
             endIcon={expanded ? <ExpandLess /> : <ExpandMore />}
           >
-            {expanded ? "Скрыть товары" : "Показать все товары"}
+            {expanded ? "Скрыть товары" : "Показать товары"}
           </Button>
           <Button
+            fullWidth
             variant="contained"
             color={order.status === 4 ? "success" : "primary"}
-            disabled={order.status === 4 || isLoading} // Блокируем кнопку, если статус уже "Выполнен" или идет загрузка
+            disabled={order.status === 4 || isLoading}
             onClick={handleCompleteOrder}
           >
             {order.status === 4 ? "Завершен" : "Завершить заказ"}

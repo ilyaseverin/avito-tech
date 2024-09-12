@@ -147,11 +147,28 @@ const AdvertisementsList: React.FC = () => {
       </Box>
 
       <Grid2 container spacing={4}>
-        {filteredAdvertisements.map((ad: Advertisement) => (
-          <Grid2 size={{ xs: 12, md: 4 }} key={ad.id}>
-            <AdvertisementCard advertisement={ad} />
-          </Grid2>
-        ))}
+        {filteredAdvertisements.length > 0 ? (
+          filteredAdvertisements.map((ad: Advertisement) => (
+            <Grid2 size={{ xs: 12, md: 4 }} key={ad.id}>
+              <AdvertisementCard advertisement={ad} />
+            </Grid2>
+          ))
+        ) : (
+          <Typography
+            variant="h2"
+            component="h2"
+            color="textSecondary"
+            p={10}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            Объявления не найдены
+          </Typography>
+        )}
       </Grid2>
 
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
